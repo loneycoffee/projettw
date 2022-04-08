@@ -95,6 +95,7 @@ const updateTotal = function () {
 // ======================= fonctions à compléter =======================
 
 
+
 /**
 * Crée un élément div.controle pour un objet produit
 * @param {number} index - indice du produit considéré
@@ -113,8 +114,8 @@ const createOrderControlBlock = function (index) {
 	input.value = "0";
 	input.min = "0";
 	input.max = MAX_QTY.toString();
-
 	// TODO :  Q5 mettre en place le gestionnaire d'événément pour input permettant de contrôler les valeurs saisies	
+	input.addEventListener("change",verifQuantity);
 	control.appendChild(input);
 	
 	// Crée le bouton de commande
@@ -163,7 +164,17 @@ const orderProduct = function () {
 * @todo Q6- Q7
 */
 const verifQuantity = function () {
-	//TODO
+	if (parseInt(this.value)==NaN) {
+		this.nextElementSibling.style.opacity = 0;	
+		this.value = 0;
+	}
+	else if(parseInt(this.value)>this.max){
+		this.nextElementSibling.style.opacity = 0;
+		this.value = 0;
+	}
+	else {
+		this.nextElementSibling.style.opacity = 100;
+	}
 }
 
 
