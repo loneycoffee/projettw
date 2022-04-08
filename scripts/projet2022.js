@@ -147,13 +147,16 @@ const createFigureBlock = function (product) {
 * @todo Q8
 */
 
-const orderProduct = function () {
+const orderProduct = function () { // ATTENTION Il faut rédiger doc (flemme)
 	const idx = parseInt(this.id);
 	const qty = parseInt(document.getElementById(idx + "-qte").value);
 	if (qty > 0) {
 		addProductToCart(idx, qty); // ajoute un produit au panier
 		//TODO gérer la remise à zéro de la quantité après la commande 
 		// et tous les comportements du bouton représentant le chariot 
+		this.previousElementSibling.value = 0;
+		this.style.opacity = 0.25;
+		this.removeEventListener("click",orderProduct);
 	}
 }
 
@@ -165,15 +168,17 @@ const orderProduct = function () {
 */
 const verifQuantity = function () {
 	if (parseInt(this.value)==NaN) {
-		this.nextElementSibling.style.opacity = 0;	
+		this.nextElementSibling.style.opacity = 0.25;	
 		this.value = 0;
 	}
 	else if(parseInt(this.value)>this.max){
-		this.nextElementSibling.style.opacity = 0;
+		this.nextElementSibling.style.opacity = 0.25;
 		this.value = 0;
 	}
 	else {
-		this.nextElementSibling.style.opacity = 100;
+		this.value = parseInt(this.value); // Essayer de gérer cas float parce que là ça parseInt juste 
+		this.nextElementSibling.style.opacity = 1;
+		this.nextElementSibling.addEventListener("click",orderProduct)
 	}
 }
 
