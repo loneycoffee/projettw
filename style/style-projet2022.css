@@ -10,9 +10,9 @@ h1 {
 	background-color: white;
 	color : rgb(60,60,60);
 	padding : 5px;
-	border-radius : 4px;
+border-radius : 4px;
 	width : 805px;
-	box-shadow : 0px 0px 2px 2px rgba(80,64,64,0.5);
+	box-shadow: 0px 0px 2px 2px rgba(80,64,64,0.5);
 }
 
 div#panier, div#boutique {

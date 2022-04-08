@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+  color: #2d3436;
+}
+
+body {
+  background-color: #ecf0f1;
+}
+
+div#panier, div#boutique, h1{
+  background-color: #E1F2F7;
+}
+
+div#total {
+  background-color: #E5BACE;
+}

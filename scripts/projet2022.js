@@ -114,9 +114,9 @@ const createOrderControlBlock = function (index) {
 	input.min = "0";
 	input.max = MAX_QTY.toString();
 
-	// TODO :  Q5 mettre en place le gestionnaire d'événément pour input permettant de contrôler les valeurs saisies
+	// TODO :  Q5 mettre en place le gestionnaire d'événément pour input permettant de contrôler les valeurs saisies	
 	control.appendChild(input);
-
+	
 	// Crée le bouton de commande
 	const button = document.createElement("button");
 	button.className = 'commander';
@@ -134,6 +134,11 @@ const createOrderControlBlock = function (index) {
 */
 const createFigureBlock = function (product) {
 	// TODO : code incorrect : à modifier Q4 
+	fig = document.createElement("figure");
+	img = document.createElement("img");
+	img.src = product.image;
+	fig.appendChild(img);
+	return fig;
 }
 
 
